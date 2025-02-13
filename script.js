@@ -30,25 +30,40 @@ function showPage(pageId) {
     }
 }
 
-// Show resources for selected subject
-function showResources(subject) {
+// Show resources for selected subject and course
+function showResources(subject, course) {
     document.getElementById('subject-name').textContent = subject;
     showPage('resources');
 
-    // Add logic for displaying assignment download link for FSAD under CSE
-    if (subject === "FSAD" && document.getElementById("CSE")) {
-        const assignmentLink = document.getElementById("assignment-1-link");
-        assignmentLink.setAttribute("href", "https://store-ap-sgp-1.gofile.io/download/web/a4afa5f2-b143-41bf-909e-24abbe5f41be/2300032102%20(9)%20(4).pdf");
-        assignmentLink.setAttribute("download", "Assignment_1.pdf");
+    // Get the assignment link element
+    const assignmentLink = document.getElementById("assignment-1-link");
 
-        // Disable right-click and dragging on the assignment link
-        assignmentLink.addEventListener("contextmenu", function(event) {
-            event.preventDefault();
-        });
-        assignmentLink.addEventListener("dragstart", function(event) {
-            event.preventDefault();
-        });
+    // Clear any previous assignments
+    assignmentLink.removeAttribute("href");
+    assignmentLink.removeAttribute("download");
+
+    // Assign the resource links based on subject and course
+    if (subject === "FSAD" && course === "CSE") {
+        assignmentLink.setAttribute("href", "https://store-ap-sgp-1.gofile.io/download/web/a4afa5f2-b143-41bf-909e-24abbe5f41be/2300032102%20(9)%20(4).pdf");
+        assignmentLink.setAttribute("download", "Assignment_1_FSAD_CSE.pdf");
+    } else if (subject === "Maths" && course === "CSE") {
+        assignmentLink.setAttribute("href", "https://example.com/maths-resource");
+        assignmentLink.setAttribute("download", "Maths_Resource_CSE.pdf");
+    } else if (subject === "Physics" && course === "CSE") {
+        assignmentLink.setAttribute("href", "https://example.com/physics-resource");
+        assignmentLink.setAttribute("download", "Physics_Resource_CSE.pdf");
+    } else if (subject === "FSAD" && course === "ECE") {
+        assignmentLink.setAttribute("href", "https://store-ap-sgp-1.gofile.io/download/web/a4afa5f2-b143-41bf-909e-24abbe5f41be/2300032102%20(9)%20(4).pdf");
+        assignmentLink.setAttribute("download", "Assignment_1_FSAD_ECE.pdf");
     }
+
+    // Disable right-click and dragging on the assignment link
+    assignmentLink.addEventListener("contextmenu", function(event) {
+        event.preventDefault();
+    });
+    assignmentLink.addEventListener("dragstart", function(event) {
+        event.preventDefault();
+    });
 }
 
 // Show specific resource types
@@ -108,4 +123,13 @@ document.addEventListener('click', (event) => {
         helpOptionsVisible = false;
         helpOptions.classList.remove('active');
     }
+});
+
+// Handle subject click events
+document.querySelectorAll('.subject-link').forEach(link => {
+    link.addEventListener('click', function(event) {
+        const subject = this.dataset.subject;
+        const course = this.dataset.course; 
+        showResources(subject, course);
+    });
 });
