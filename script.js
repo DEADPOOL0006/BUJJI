@@ -128,7 +128,7 @@ document.addEventListener('click', (event) => {
 // Handle subject click events
 document.querySelectorAll('.subject-link').forEach(link => {
     link.addEventListener('click', function(event) {
-        const subject = this.dataset.subject;
+        const subject = this.dataset.subject; // Assuming each link has data-subject attribute
         const course = this.dataset.course; 
         showResources(subject, course);
     });
