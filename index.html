@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Area 420</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="title">Area 420</div>
+        <div class="description">
+            Please be respectful & responsive. This website provides access to all the assignments, tutorials, and workbook PDFs for free.
+        </div>
+
+        <div class="search-container">
+            <input type="text" class="search-bar" id="search-bar" placeholder="Search..." oninput="searchSubjects()">
+        </div>
+
+        <div class="file-names" id="file-names">
+            <div class="file-name"><a href="#" onclick="showPage('CSE')">CSE</a></div>
+            <div class="file-name"><a href="#" onclick="showPage('AI&DS')">AI&DS</a></div>
+            <div class="file-name"><a href="#" onclick="showPage('CSIT')">CSIT</a></div>
+        </div>
+
+        <div id="CSE" class="content-page">
+            <h3>CSE Subjects</h3>
+            <div class="subject-list">
+                <a href="#" onclick="showResources('FSAD')">FSAD</a>
+                <a href="#" onclick="showResources('MP')">MP</a>
+                <a href="#" onclick="showResources('AOOP')">AOOP</a>
+                <a href="#" onclick="showResources('DBMS')">DBMS</a>
+            </div>
+        </div>
+
+        <div id="AI&DS" class="content-page">
+            <h3>AI&DS Subjects</h3>
+            <div class="subject-list">
+                <a href="#" onclick="showResources('DL')">DL</a>
+                <a href="#" onclick="showResources('FSAD')">FSAD</a>
+                <a href="#" onclick="showResources('DAA')">DAA</a>
+                <a href="#" onclick="showResources('MP')">MP</a>
+            </div>
+        </div>
+
+        <div id="CSIT" class="content-page">
+            <h3>CSIT Subjects</h3>
+            <div class="subject-list">
+                <a href="#" onclick="showResources('FSAD')">FSAD</a>
+                <a href="#" onclick="showResources('MP')">MP</a>
+                <a href="#" onclick="showResources('AOOP')">AOOP</a>
+                <a href="#" onclick="showResources('DBMS')">DBMS</a>
+            </div>
+        </div>
+
+        <div id="resources" class="content-page">
+            <h3>Resources for <span id="subject-name"></span></h3>
+            <div class="resource-list">
+                <a href="#" onclick="showAssignments()">Assignments</a>
+                <a href="#" onclick="showTutorials()">Tutorials</a>
+                <a href="#" onclick="showLWorkbooks()">L Workbook</a>
+                <a href="#" onclick="showSWorkbooks()">S Workbook</a>
+            </div>
+        </div>
+
+        <div id="assignments" class="content-page">
+            <h3>Assignments</h3>
+            <div class="resource-items" id="assignments-list">
+                <a href="#" id="assignment-1-link">Assignment 1</a>
+                <a href="#">Assignment 2</a>
+                <a href="#">Assignment 3</a>
+                <a href="#">Assignment 4</a>
+            </div>
+        </div>
+
+        <div id="tutorials" class="content-page">
+            <h3>Tutorials</h3>
+            <div class="resource-items">
+                <a href="#">Tutorial 1</a>
+                <a href="#">Tutorial 2</a>
+                <a href="#">Tutorial 3</a>
+                <a href="#">Tutorial 4</a>
+            </div>
+        </div>
+
+        <div id="l-workbooks" class="content-page">
+            <h3>L Workbooks</h3>
+            <div class="resource-items">
+                <a href="#">Week 1</a>
+                <a href="#">Week 2</a>
+                <a href="#">Week 3</a>
+                <a href="#">Week 4</a>
+            </div>
+        </div>
+
+        <div id="s-workbooks" class="content-page">
+            <h3>S Workbooks</h3>
+            <div class="resource-items">
+                <a href="#">Week 1</a>
+                <a href="#">Week 2</a>
+                <a href="#">Week 3</a>
+                <a href="#">Week 4</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="question-icon" onclick="toggleHelpOptions()">?</div>
+    <div class="help-options" id="help-options">
+        <a href="#" onclick="helpFAQ()">Help & FAQ</a>
+        <a href="#" onclick="showLoginPopup()">Login</a>
+        <a href="#" onclick="showUpload()">Upload</a>
+    </div>
+
+    <div class="popup-overlay" id="popup-overlay">
+        <div class="popup">
+            <p>Please login to use the website</p>
+            <button onclick="closePopup()">Close</button>
+        </div>
+    </div>
+
+    <script>
+        function showResources(subject) {
+            document.getElementById("resources").style.display = "block";
+            document.getElementById("subject-name").textContent = subject;
+
+            // Check if FSAD is selected under CSE and show the download link for Assignment 1
+            if (subject === "FSAD" && document.getElementById("CSE")) {
+                document.getElementById("assignment-1-link").setAttribute("href", "https://store-ap-sgp-1.gofile.io/download/web/a4afa5f2-b143-41bf-909e-24abbe5f41be/2300032102%20(9)%20(4).pdf");
+                document.getElementById("assignment-1-link").setAttribute("download", "Assignment_1.pdf");
+            }
+        }
+
+        // Search function for filtering subject names
+        function searchSubjects() {
+            let input = document.getElementById("search-bar").value.toLowerCase();
+            let fileNames = document.getElementById("file-names").getElementsByClassName("file-name");
+            Array.from(fileNames).forEach(fileName => {
+                let text = fileName.textContent.toLowerCase();
+                if (text.includes(input)) {
+                    fileName.style.display = "block";
+                } else {
+                    fileName.style.display = "none";
+                }
+            });
+        }
+    </script>
+
+    <script src="script.js"></script>
+</body>
+</html>
