@@ -73,9 +73,11 @@
             <h3>Assignments</h3>
             <div class="resource-items" id="assignments-list">
                 <a href="#" id="assignment-1-link">Assignment 1</a>
-                <a href="#">Assignment 2</a>
-                <a href="#">Assignment 3</a>
-                <a href="#">Assignment 4</a>
+                <a href="#" id="assignment-2-link">Assignment 2</a>
+                <a href="#" id="assignment-3-link">Assignment 3</a>
+                <a href="#" id="assignment-4-link">Assignment 4</a>
+                <a href="#" id="assignment-5-link">Assignment 5</a>
+                <a href="#" id="assignment-6-link">Assignment 6</a>
             </div>
         </div>
 
@@ -111,6 +113,14 @@
                 <a href="#">Week 4</a>
             </div>
         </div>
+
+        <!-- Upload Section -->
+        <div id="upload-section" class="content-page">
+            <h3>Upload Resources</h3>
+            <input type="file" id="file-upload" />
+            <button onclick="uploadFile()">Upload</button>
+            <div id="uploaded-links" class="resource-items"></div>
+        </div>
     </div>
 
     <div class="question-icon" onclick="toggleHelpOptions()">?</div>
@@ -133,12 +143,33 @@
 
             // Check if FSAD is selected and show the corresponding assignments for CSE, AI&DS, or CSIT
             if (subject === "FSAD" && course === "CSE") {
-                document.getElementById("assignment-1-link").setAttribute("href", "https://store-ap-sgp-1.gofile.io/download/web/a4afa5f2-b143-41bf-909e-24abbe5f41be/2300032102%20(9)%20(4).pdf");
+                document.getElementById("assignment-1-link").setAttribute("href", "https://store9.gofile.io/download/web/386eec81-9d59-4f00-b45a-66e1ba5f67bc/FSAD%20LAB%20-%201%20WORKBOOK%20Answer_THANOS_.pdf");
                 document.getElementById("assignment-1-link").setAttribute("download", "Assignment_1.pdf");
+                document.getElementById("assignment-2-link").setAttribute("href", "https://store2.gofile.io/download/web/e5c9c74f-51c0-4c62-b351-9c3de1b11701/FSAD%20LAB%20-%202%20WORKBOOK%20Answer_THANOS_.pdf");
+                document.getElementById("assignment-2-link").setAttribute("download", "Assignment_2.pdf");
+                document.getElementById("assignment-3-link").setAttribute("href", "https://store-na-phx-1.gofile.io/download/web/0227bd9d-deb4-4361-8f13-5820805e0ddd/FSAD%20LAB%20-%203%20WORKBOOK%20Answer_THANOS_.pdf");
+                document.getElementById("assignment-3-link").setAttribute("download", "Assignment_3.pdf");
+                document.getElementById("assignment-4-link").setAttribute("href", "https://store10.gofile.io/download/web/878c86b6-fe30-461b-b8d1-f54bedaa32c7/FSAD%20LAB%20-%204%20WORKBOOK%20Answer_THANOS_.pdf");
+                document.getElementById("assignment-4-link").setAttribute("download", "Assignment_4.pdf");
+                document.getElementById("assignment-5-link").setAttribute("href", "https://store-eu-par-4.gofile.io/download/web/907b5012-cc7c-4e8b-9b29-7ed278029023/FSAD%20LAB%20-%205%20WORKBOOK%20Answer_THANOS_.pdf");
+                document.getElementById("assignment-5-link").setAttribute("download", "Assignment_5.pdf");
+                document.getElementById("assignment-6-link").setAttribute("href", "https://store1.gofile.io/download/web/de155b97-3c64-4fef-bb04-78b119594451/FSAD%20LAB%20-%206%20WORKBOOK%20Answer_THANOS_.pdf");
+                document.getElementById("assignment-6-link").setAttribute("download", "Assignment_6.pdf");
+
             } else {
                 // Default behavior for other subjects
                 document.getElementById("assignment-1-link").setAttribute("href", "#");
                 document.getElementById("assignment-1-link").removeAttribute("download");
+                document.getElementById("assignment-2-link").setAttribute("href", "#");
+                document.getElementById("assignment-2-link").removeAttribute("download");
+                document.getElementById("assignment-3-link").setAttribute("href", "#");
+                document.getElementById("assignment-3-link").removeAttribute("download");
+                document.getElementById("assignment-4-link").setAttribute("href", "#");
+                document.getElementById("assignment-4-link").removeAttribute("download");
+                document.getElementById("assignment-5-link").setAttribute("href", "#");
+                document.getElementById("assignment-5-link").removeAttribute("download");
+                document.getElementById("assignment-6-link").setAttribute("href", "#");
+                document.getElementById("assignment-6-link").removeAttribute("download");
             }
         }
 
@@ -154,6 +185,23 @@
                     fileName.style.display = "none";
                 }
             });
+        }
+
+        // Function to handle file uploads
+        function uploadFile() {
+            const fileInput = document.getElementById("file-upload");
+            const file = fileInput.files[0];
+
+            if (file) {
+                const fileLink = document.createElement("a");
+                fileLink.href = URL.createObjectURL(file);
+                fileLink.download = file.name;
+                fileLink.textContent = `Download ${file.name}`;
+
+                const uploadedLinks = document.getElementById("uploaded-links");
+                uploadedLinks.appendChild(fileLink);
+                uploadedLinks.appendChild(document.createElement("br"));
+            }
         }
     </script>
 
