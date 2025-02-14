@@ -90,8 +90,20 @@ function showSWorkbooks() { showPage('s-workbooks'); }
 // Help options functionality
 let helpOptionsVisible = false;
 function toggleHelpOptions() {
-    document.getElementById('help-options').classList.toggle('active');
+    const helpOptions = document.getElementById('help-options');
+    const questionIcon = document.querySelector('.question-icon');
+
+    helpOptions.classList.toggle('active');
     helpOptionsVisible = !helpOptionsVisible;
+
+    // Toggle the text between '?' and 'Join Telegram'
+    if (helpOptionsVisible) {
+        questionIcon.textContent = "Join Telegram";
+        document.querySelector('.help-options a').textContent = "Click to join the Telegram group";
+    } else {
+        questionIcon.textContent = "?";
+        document.querySelector('.help-options a').textContent = "Telegram";
+    }
 }
 
 // Login popup functionality
