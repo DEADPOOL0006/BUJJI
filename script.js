@@ -67,17 +67,17 @@ function showResources(subject, course) {
     // Assign the resource links based on subject and course
     if (subject === "FSAD" && course === "CSE") {
 
-        assignmentLink1.setAttribute("href", "https://store9.gofile.io/download/web/386eec81-9d59-4f00-b45a-66e1ba5f67bc/FSAD%20LAB%20-%201%20WORKBOOK%20Answer_THANOS_.pdf");
+        assignmentLink1.setAttribute("href", "https://store9.gofile.io/download/386eec81-9d59-4f00-b45a-66e1ba5f67bc/FSAD%20LAB%20-%201%20WORKBOOK%20Answer_THANOS_.pdf");
         assignmentLink1.setAttribute("download", "Assignment_1_FSAD_CSE.pdf");
-        assignmentLink2.setAttribute("href", "https://store2.gofile.io/download/web/e5c9c74f-51c0-4c62-b351-9c3de1b11701/FSAD%20LAB%20-%202%20WORKBOOK%20Answer_THANOS_.pdf");
+        assignmentLink2.setAttribute("href", "https://store2.gofile.io/download/e5c9c74f-51c0-4c62-b351-9c3de1b11701/FSAD%20LAB%20-%202%20WORKBOOK%20Answer_THANOS_.pdf");
         assignmentLink2.setAttribute("download", "Assignment_2_FSAD_CSE.pdf");
-        assignmentLink3.setAttribute("href", "https://store-na-phx-1.gofile.io/download/web/0227bd9d-deb4-4361-8f13-5820805e0ddd/FSAD%20LAB%20-%203%20WORKBOOK%20Answer_THANOS_.pdf");
+        assignmentLink3.setAttribute("href", "https://store-na-phx-1.gofile.io/download/0227bd9d-deb4-4361-8f13-5820805e0ddd/FSAD%20LAB%20-%203%20WORKBOOK%20Answer_THANOS_.pdf");
         assignmentLink3.setAttribute("download", "Assignment_3_FSAD_CSE.pdf");
-        assignmentLink4.setAttribute("href", "https://store10.gofile.io/download/web/878c86b6-fe30-461b-b8d1-f54bedaa32c7/FSAD%20LAB%20-%204%20WORKBOOK%20Answer_THANOS_.pdf");
+        assignmentLink4.setAttribute("href", "https://store10.gofile.io/download/878c86b6-fe30-461b-b8d1-f54bedaa32c7/FSAD%20LAB%20-%204%20WORKBOOK%20Answer_THANOS_.pdf");
         assignmentLink4.setAttribute("download", "Assignment_4_FSAD_CSE.pdf");
-        assignmentLink5.setAttribute("href", "https://store-eu-par-4.gofile.io/download/web/907b5012-cc7c-4e8b-9b29-7ed278029023/FSAD%20LAB%20-%205%20WORKBOOK%20Answer_THANOS_.pdf");
+        assignmentLink5.setAttribute("href", "https://store-eu-par-4.gofile.io/download/907b5012-cc7c-4e8b-9b29-7ed278029023/FSAD%20LAB%20-%205%20WORKBOOK%20Answer_THANOS_.pdf");
         assignmentLink5.setAttribute("download", "Assignment_5FSAD_CSE.pdf");
-        assignmentLink6.setAttribute("href", "https://store1.gofile.io/download/web/de155b97-3c64-4fef-bb04-78b119594451/FSAD%20LAB%20-%206%20WORKBOOK%20Answer_THANOS_.pdf");
+        assignmentLink6.setAttribute("href", "https://store1.gofile.io/download/de155b97-3c64-4fef-bb04-78b119594451/FSAD%20LAB%20-%206%20WORKBOOK%20Answer_THANOS_.pdf");
         assignmentLink6.setAttribute("download", "Assignment_6_FSAD_CSE.pdf");
 
     } else if (subject === "Maths" && course === "CSE") {
