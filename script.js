@@ -1,25 +1,3 @@
-// Disable right-click and text selection on the entire page
-document.addEventListener('contextmenu', function(event) {
-    event.preventDefault();
-});
-
-document.addEventListener('selectstart', function(event) {
-    event.preventDefault();
-});
-
-// Disable right-click, drag, and copy on assignment links
-[assignmentLink1, assignmentLink2, assignmentLink3, assignmentLink4, assignmentLink5, assignmentLink6].forEach(link => {
-    link.addEventListener("contextmenu", function(event) {
-        event.preventDefault();
-    });
-    link.addEventListener("dragstart", function(event) {
-        event.preventDefault();
-    });
-    link.addEventListener("copy", function(event) {
-        event.preventDefault();
-    });
-});
-
 // Hide all content pages initially
 document.addEventListener('DOMContentLoaded', () => {
     const contentPages = document.querySelectorAll('.content-page');
@@ -35,6 +13,21 @@ function searchSubjects() {
         const subject = link.textContent.toLowerCase();
         link.parentElement.style.display = subject.includes(searchTerm) ? 'block' : 'none';
     });
+}
+
+// Show selected page
+function showPage(pageId) {
+    const contentPages = document.querySelectorAll('.content-page');
+    contentPages.forEach(page => {
+        page.classList.remove('active');
+        page.style.display = 'none';
+    });
+
+    const selectedPage = document.getElementById(pageId);
+    if (selectedPage) {
+        selectedPage.style.display = 'block';
+        selectedPage.classList.add('active');
+    }
 }
 
 // Show selected page
@@ -169,13 +162,4 @@ document.addEventListener('click', (event) => {
         helpOptionsVisible = false;
         helpOptions.classList.remove('active');
     }
-});
-
-// Handle subject click events
-document.querySelectorAll('.subject-link').forEach(link => {
-    link.addEventListener('click', function(event) {
-        const subject = this.dataset.subject; // Assuming each link has data-subject attribute
-        const course = this.dataset.course; 
-        showResources(subject, course);
-    });
 });
