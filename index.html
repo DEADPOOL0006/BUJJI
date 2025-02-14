@@ -180,22 +180,7 @@
             });
         }
 
-        // Function to handle file uploads
-        function uploadFile() {
-            const fileInput = document.getElementById("file-upload");
-            const file = fileInput.files[0];
-
-            if (file) {
-                const fileLink = document.createElement("a");
-                fileLink.href = URL.createObjectURL(file);
-                fileLink.download = file.name;
-                fileLink.textContent = `Download ${file.name}`;
-
-                const uploadedLinks = document.getElementById("uploaded-links");
-                uploadedLinks.appendChild(fileLink);
-                uploadedLinks.appendChild(document.createElement("br"));
-            }
-        }
+        
     </script>
 
     <script src="script.js"></script>
