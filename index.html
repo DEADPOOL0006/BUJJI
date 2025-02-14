@@ -114,11 +114,18 @@
             </div>
         </div>
 
-
+        <!-- Upload Section -->
+        <div id="upload-section" class="content-page">
+            <h3>Upload Resources</h3>
+            <input type="file" id="file-upload" />
+            <button onclick="uploadFile()">Upload</button>
+            <div id="uploaded-links" class="resource-items"></div>
+        </div>
+    </div>
 
     <div class="question-icon" onclick="toggleHelpOptions()">?</div>
     <div class="help-options" id="help-options">
-        <a href="https://t.me/students_of_klu" target="_blank">Telegram</a>
+        <a href="https://t.me/students_of_klu">Telegram</a>
     </div>
 
     <div class="popup-overlay" id="popup-overlay">
@@ -180,7 +187,7 @@
             });
         }
 
-        
+       
     </script>
 
     <script src="script.js"></script>
