@@ -23,7 +23,6 @@ body {
         0 20px 40px rgba(0, 0, 0, 0.1),
         0 10px 20px rgba(0, 0, 0, 0.05);
     transform-style: preserve-3d;
-    animation: float 8s ease-in-out infinite;
 }
 
 @keyframes float {
